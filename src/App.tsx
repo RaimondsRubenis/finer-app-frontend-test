@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Container } from './components/Container'
 import {InputField} from './components/InputField'
-import {isValidEmail, isValidPhone, isValidInput, sendtoApi, validator} from './Functions';
+import {isValidPhone, isValidInput, sendtoApi, validator} from './Functions';
 
 import "./styles.css";
 

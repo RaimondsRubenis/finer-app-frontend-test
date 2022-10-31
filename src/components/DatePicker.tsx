@@ -1,4 +1,4 @@
-import React, {HTMLInputTypeAttribute, Dispatch, SetStateAction, ChangeEventHandler, KeyboardEvent, useState } from 'react';
+import React, { KeyboardEvent, useState } from 'react';
 
 interface pickerProps {
 	data: {
@@ -17,15 +17,15 @@ const DatePicker = ({data}:pickerProps) => {
 	const handleInput = (event: any) => {
 		const target = event.target.name;
 		const value = event.target.value;
-		if(target==name+"-year"){
+		if(target===name+"-year"){
 			let final = Number(value) > 99 ? "99" : value;
 			setYear(final);
 		}
-		if(target==name+"-month"){
+		if(target===name+"-month"){
 			let final = Number(value) > 12 ? "12" : value;
 			setMonth(final);
 		}
-		if(target==name+"-day"){
+		if(target===name+"-day"){
 			let final = Number(value) > 31 ? "31" : value;
 			setDay(final);
 		}
@@ -34,12 +34,12 @@ const DatePicker = ({data}:pickerProps) => {
 	const normaliseInput = (event:any) => {
 		const ename = event.target.name;
 		const evalue = event.target.value;
-		(ename==name+"-month" && evalue<0) && setMonth("01");
-		(ename==name+"-day" && evalue<0) && setDay("01");
-		if(Number(evalue) < 10 && evalue.length == 1 && evalue != ""){
-			ename==name+"-year" && setYear("0"+year);
-			ename==name+"-month" && setMonth("0"+month);
-			ename==name+"-day" && setDay("0"+day);
+		(ename===name+"-month" && evalue<0) && setMonth("01");
+		(ename===name+"-day" && evalue<0) && setDay("01");
+		if(Number(evalue) < 10 && evalue.length === 1 && evalue !== ""){
+			ename===name+"-year" && setYear("0"+year);
+			ename===name+"-month" && setMonth("0"+month);
+			ename===name+"-day" && setDay("0"+day);
 		}
 		(Boolean(day) && Boolean(month) && Boolean(year)) 
 			? changeTrigger({target:{name: name, value: day+"-"+month+"-"+year}})
